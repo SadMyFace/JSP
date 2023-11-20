@@ -1,0 +1,27 @@
+//DB를 생성
+create database javadb;
+
+//USER를 생성
+create user 'javaUser'@'localhost' identified by 'mysql';
+//id가 javaUser
+//pw는 mysql
+
+//유저 권한 부여 구문
+//해당 유저가 사용할 수 있는 db를 설정
+grant all privileges on javadb.* to 'javaUser'@'localhost' with grant option;
+//javadb.*는 하위의 모든 데이터를 의미
+
+//권한 적용
+flush privileges;
+
+mysql -ujavaUser -pmysql;
+show databases;
+
+create table product(
+pno int not null auto_increment,
+pname varchar(200) not null,
+price int not null default 0,
+regdate datetime default now(),
+madeby text,
+primary key(pno));
+
