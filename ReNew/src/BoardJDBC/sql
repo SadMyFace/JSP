@@ -1,0 +1,16 @@
+board table 생성
+bno int ai : 번호
+title : 제목
+writer : 작성자
+content : 내용
+regdate : 작성일 now()
+moddate : 수정일
+
+CREATE table board(
+bno int auto_increment, 
+title varchar(200) not null, 
+writer varchar(100) not null, 
+content text, 
+regdate datetime default now(), 
+moddate datetime default now(), 
+primary key(bno));
